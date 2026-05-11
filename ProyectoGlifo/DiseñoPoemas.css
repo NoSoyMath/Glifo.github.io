@@ -1,0 +1,481 @@
+/* GLIFO Color Palette - Versión actualizada */
+:root {
+  --azul-profundo: #1A3A6D;
+  --azul-medio: #3B82F6;
+  --verde-lima: #6EC04A;
+  --naranja-coral: #FF7F41;  /* Solo para detalles decorativos, NO para textos */
+  --blanco-puro: #FFFFFF;
+  --gris-sombra: #D1D5DB;
+  --gris-claro: #F3F4F6;
+  --texto-oscuro: #1F2937;
+  --texto-gris: #6B7280;
+  --verde-oscuro: #4CAF50;
+  --verde-claro: #8BC34A;
+  
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: var(--texto-oscuro);
+  line-height: 1.6;
+}
+
+/* Header styles */
+.main-header {
+  background: var(--blanco-puro);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+}
+
+.logo-text {
+  background: linear-gradient(135deg, var(--azul-profundo), var(--azul-medio));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.main-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--texto-gris);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--azul-medio);
+}
+
+/* Hero section - DEGRADADO VERDE para "Con GLIFO" */
+.hero {
+  background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-medio) 100%);
+  color: var(--blanco-puro);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') repeat-x bottom;
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* DEGRADADO VERDE para "Con GLIFO" - Usando la paleta */
+.hero-highlight {
+  background: linear-gradient(135deg, var(--verde-lima) 0%, var(--verde-oscuro) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Buttons - TODOS VERDES */
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--verde-lima) 0%, var(--verde-oscuro) 100%);
+  color: var(--blanco-puro);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-lima) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(110,192,74,0.3);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.2);
+  color: var(--blanco-puro);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-evaluate {
+  background: linear-gradient(135deg, var(--verde-lima) 0%, var(--verde-oscuro) 100%);
+  color: var(--blanco-puro);
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.btn-evaluate:hover {
+  background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-lima) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(110,192,74,0.3);
+}
+
+/* Writing section */
+.writing-section {
+  padding: 4rem 2rem;
+  background: var(--blanco-puro);
+}
+
+.section-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--azul-profundo);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.section-title.centered {
+  justify-content: center;
+}
+
+.title-icon {
+  font-size: 2rem;
+}
+
+.section-subtitle {
+  color: var(--texto-gris);
+  font-size: 1rem;
+}
+
+.writing-card {
+  background: var(--blanco-puro);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+/* Keywords area */
+.keywords-area {
+  margin-bottom: 2rem;
+}
+
+.keywords-label, .poem-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--azul-profundo);
+}
+
+.label-icon {
+  font-size: 1.2rem;
+}
+
+.keywords-display {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.keywords-input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid var(--gris-sombra);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--gris-claro);
+  font-weight: 600;
+  color: var(--verde-oscuro);
+  transition: all 0.3s ease;
+}
+
+.keywords-input[readonly] {
+  cursor: default;
+}
+
+.icon-btn {
+  background: linear-gradient(135deg, var(--verde-lima) 0%, var(--verde-oscuro) 100%);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-lima) 100%);
+  transform: scale(1.05);
+}
+
+/* Poem textarea */
+.poem-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--gris-sombra);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  line-height: 1.8;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.poem-textarea:focus {
+  outline: none;
+  border-color: var(--verde-lima);
+  box-shadow: 0 0 0 3px rgba(110,192,74,0.1);
+}
+
+/* Action buttons */
+.action-buttons {
+  margin: 2rem 0;
+}
+
+/* Result container */
+.result-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--gris-claro);
+  min-height: 200px;
+}
+
+.result-container .good {
+  background: rgba(110,192,74,0.1);
+  border-left: 4px solid var(--verde-lima);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.result-container .bad {
+  background: rgba(59,130,246,0.1);
+  border-left: 4px solid var(--azul-medio);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Features section */
+.features {
+  background: linear-gradient(135deg, var(--gris-claro) 0%, #e5e7eb 100%);
+  padding: 4rem 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: var(--blanco-puro);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  color: var(--azul-profundo);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.feature-description {
+  color: var(--texto-gris);
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.main-footer {
+  background: var(--azul-profundo);
+  color: var(--blanco-puro);
+  padding: 3rem 2rem 1rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--verde-lima), var(--verde-claro));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-description {
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.contact-item {
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Background layer for animation */
+#bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .main-nav {
+    display: none;
+  }
+  
+  .writing-card {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.writing-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.result-container {
+  animation: fadeInUp 0.4s ease-out;
+}

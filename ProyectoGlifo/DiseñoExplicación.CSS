@@ -1,0 +1,562 @@
+/* ==========================================
+   GLIFO - DISEÑO DE PÁGINA DE EXPLICACIÓN
+   Paleta de colores consistente con la plataforma
+   ========================================== */
+
+:root {
+    --azul-profundo: #1A3A6D;
+    --azul-medio: #3B82F6;
+    --verde-lima: #6EC04A;
+    --naranja-coral: #FF7F41;
+    --blanco-puro: #FFFFFF;
+    --gris-sombra: #D1D5DB;
+    --gris-claro: #F3F4F6;
+    --gris-texto: #6B7280;
+    --texto-oscuro: #1F2937;
+    --header-bg: #1f2a37;
+    --fondo-oscuro: #0f172a;
+    --fondo-oscuro-card: #1e293b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--gris-claro) 0%, #e5e9f0 100%);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+/* ==========================================
+   NAVBAR UNIFICADA - CON ESPACIO PARA CONTENIDO
+   ========================================== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    background: #1f2a37;
+    color: white;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* IMPORTANTE: Espacio para que el contenido no quede debajo del navbar */
+body {
+    padding-top: 80px;
+}
+
+/* Logo con tres barras */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.bars {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.bar {
+    width: 6px;
+    height: 25px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.bar1 {
+    background: #3b82f6;
+}
+
+.bar2 {
+    background: #10b981;
+}
+
+.bar3 {
+    background: #6366f1;
+}
+
+.logo:hover .bar1 {
+    background: #60a5fa;
+}
+
+.logo:hover .bar2 {
+    background: #34d399;
+}
+
+.logo:hover .bar3 {
+    background: #818cf8;
+}
+
+/* Enlaces de navegación */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.nav-links a {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #10b981;
+    transform: translateY(-1px);
+}
+
+.nav-links a.active {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+/* Separador vertical */
+.nav-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 4px;
+}
+
+/* Animación de entrada */
+.navbar {
+    animation: slideDown 0.5s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar:hover .nav-divider {
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   RESPONSIVE - TABLETS Y MÓVILES
+   ========================================== */
+
+@media (max-width: 900px) {
+    body {
+        padding-top: 110px;
+    }
+    
+    .navbar {
+        padding: 15px 30px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+    
+    .nav-divider {
+        height: 20px;
+        margin: 0 2px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 120px;
+    }
+    
+    .navbar {
+        padding: 12px 20px;
+    }
+    
+    .logo {
+        font-size: 20px;
+        gap: 8px;
+    }
+    
+    .bar {
+        width: 5px;
+        height: 20px;
+    }
+    
+    .nav-links a {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .nav-divider {
+        display: none;
+    }
+}
+/* ==========================================
+   HERO
+   ========================================== */
+.hero {
+    background: linear-gradient(135deg, var(--azul-profundo), var(--azul-medio));
+    color: var(--blanco-puro);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero .highlight {
+    color: var(--verde-lima);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   SECCIONES GENERALES
+   ========================================== */
+.section {
+    padding: 4rem 0;
+}
+
+.section h2 {
+    font-size: 2rem;
+    color: var(--azul-profundo);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    color: var(--gris-texto);
+}
+
+/* ==========================================
+   TARJETA DE INTRODUCCIÓN
+   ========================================== */
+.intro-card {
+    background: var(--blanco-puro);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(26,58,109,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.intro-card h2 {
+    margin-bottom: 1rem;
+}
+
+.intro-card p {
+    margin-bottom: 1rem;
+    color: var(--texto-oscuro);
+}
+
+/* ==========================================
+   SECCIONES DE CÓDIGO CON FONDO OSCURO
+   ========================================== */
+.code-section {
+    padding: 4rem 0;
+}
+
+.code-section.dark-bg {
+    background: var(--fondo-oscuro);
+}
+
+.code-section.dark-bg .light-title {
+    color: var(--blanco-puro);
+}
+
+.code-section.dark-bg .section-intro.light {
+    color: #94a3b8;
+}
+
+.code-block {
+    background: #0a0e1a;
+    border-radius: 16px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+.code-block code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #e2e8f0;
+}
+
+/* Estilos para highlight.js */
+.hljs {
+    background: transparent !important;
+}
+
+.code-explanation {
+    background: var(--blanco-puro);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--verde-lima);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.code-explanation.light-explanation {
+    background: rgba(255,255,255,0.1);
+    border-left-color: var(--verde-lima);
+    color: var(--blanco-puro);
+}
+
+.code-explanation.light-explanation h3,
+.code-explanation.light-explanation ul,
+.code-explanation.light-explanation li {
+    color: var(--blanco-puro);
+}
+
+.code-explanation h3 {
+    color: var(--azul-profundo);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.code-explanation ul {
+    margin-left: 1.5rem;
+}
+
+.code-explanation li {
+    margin-bottom: 0.5rem;
+    color: var(--gris-texto);
+}
+
+.code-explanation.light-explanation li {
+    color: #cbd5e1;
+}
+
+/* ==========================================
+   TECNOLOGÍAS
+   ========================================== */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tech-card {
+    background: var(--blanco-puro);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(26,58,109,0.08);
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(26,58,109,0.15);
+}
+
+.tech-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.tech-card h3 {
+    color: var(--azul-profundo);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.tech-card p {
+    color: var(--gris-texto);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+    background: var(--header-bg);
+    color: white;
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--verde-lima);
+}
+
+.footer-section p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--verde-lima);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .code-block {
+        padding: 1rem;
+    }
+    
+    .code-block code {
+        font-size: 0.7rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-card, .code-block, .tech-card {
+    animation: fadeInUp 0.5s ease forwards;
+}

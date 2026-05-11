@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLIFO - Explicación del Código</title>
+    
+    <!-- Conexión al CSS -->
+    <link rel="stylesheet" href="DiseñoExplicación.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Highlight.js para resaltado de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+<!-- NAVBAR GLIFO - EXPLICACIÓN -->
+<div class="navbar">
+    <div class="logo">
+        <div class="bars">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+        </div>
+        GLIFO
+    </div>
+    
+    <div class="nav-links">
+        <a href="glifoPRUEBAS.html#inicio">Inicio</a>
+        <a href="glifoPRUEBAS.html#que-somos">¿Qué somos?</a>
+        <a href="glifoPRUEBAS.html#metodologia">Metodología</a>
+        <a href="glifoPRUEBAS.html#beneficios">Beneficios</a>
+        <span class="nav-divider"></span>
+        <a href="ACTIVIDADESGLIFO.html">Actividades</a>
+        <a href="Explicacion.html" class="active">Explicación</a>
+        <a href="Crear.html">Tutorial</a>
+        <a href="Creacion.html">Creación</a>
+    </div>
+</div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>Estructura y funcionamiento <span class="highlight">de GLIFO</span></h1>
+            <p class="hero-subtitle">Una guía detallada sobre cómo está construida la plataforma, sus componentes y la lógica detrás de cada actividad interactiva.</p>
+        </div>
+    </section>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="section intro">
+        <div class="container">
+            <div class="intro-card">
+                <div class="intro-icon">📱</div>
+                <h2>¿Cómo está construida la aplicación?</h2>
+                <p>GLIFO es una plataforma educativa web desarrollada con tecnologías web estándar: <strong>HTML5, CSS3 y JavaScript puro (Vanilla JS)</strong>. No utiliza frameworks externos, lo que garantiza un código ligero, rápido y fácil de modificar.</p>
+                <p>La aplicación se compone de tres páginas principales que trabajan de manera integrada para ofrecer una experiencia completa de aprendizaje lector.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN DE CÓDIGO: ESTRUCTURA HTML BASE       -->
+    <!-- ============================================ -->
+    <section class="section code-section dark-bg">
+        <div class="container">
+            <h2 class="light-title">Estructura HTML de la página principal</h2>
+            <p class="section-intro light">La página principal está organizada en secciones semánticas que facilitan la navegación y el mantenimiento del código.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-html">
+&lt;!-- NAVBAR (fijo en la parte superior) --&gt;
+&lt;div class="navbar"&gt;
+    &lt;div class="logo"&gt;
+        &lt;div class="bars"&gt;
+            &lt;div class="bar bar1"&gt;&lt;/div&gt;
+            &lt;div class="bar bar2"&gt;&lt;/div&gt;
+            &lt;div class="bar bar3"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        GLIFO
+    &lt;/div&gt;
+    &lt;div class="nav-links"&gt;
+        &lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
+        &lt;a href="#que-somos"&gt;¿Qué somos?&lt;/a&gt;
+        &lt;a href="#metodologia"&gt;Metodología&lt;/a&gt;
+        &lt;a href="#beneficios"&gt;Beneficios&lt;/a&gt;
+        &lt;a href="#contacto"&gt;Contacto&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- SECCIÓN HERO --&gt;
+&lt;section id="inicio" class="section hero-full"&gt;
+    &lt;div class="container hero-container"&gt;
+        &lt;div class="hero-text"&gt;
+            &lt;h1&gt;Leer mejor no es leer más rápido, 
+                &lt;span class="highlight"&gt;es comprender con claridad&lt;/span&gt;
+            &lt;/h1&gt;
+            &lt;button class="btn btn-primary"&gt;Comenzar aprendizaje&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                </code></pre>
+            </div>
+            <div class="code-explanation">
+                <h3>📌 Explicación de esta estructura:</h3>
+                <ul>
+                    <li><strong>Navbar fijo:</strong> Permite la navegación constante entre secciones usando anclajes (#).</li>
+                    <li><strong>Secciones con ID:</strong> Cada sección tiene un identificador único para navegación interna.</li>
+                    <li><strong>Botones con clase .btn-primary:</strong> Estilos consistentes para llamadas a la acción.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN DE CÓDIGO: SISTEMA DE PESTAÑAS       -->
+    <!-- ============================================ -->
+    <section class="section code-section">
+        <div class="container">
+            <h2>Sistema de pestañas dinámicas en Actividades</h2>
+            <p class="section-intro">La página de actividades utiliza JavaScript para cambiar el contenido sin recargar la página, con efecto de disolución.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-javascript">
+// Función de transición entre actividades
+function transitionToActivity(activityId) {
+    const contentDiv = document.getElementById('activityContent');
+    
+    // Aplicar efecto fade-out
+    contentDiv.classList.add('fade-out');
+    
+    setTimeout(() => {
+        // Cargar el contenido según el botón seleccionado
+        if (activityId === 'cuestionario') loadCuestionario();
+        else if (activityId === 'dragdrop') loadDragDrop();
+        else if (activityId === 'juego') loadJuego();
+        else if (activityId === 'evaluacion') loadEvaluacion();
+        else if (activityId === 'escritura') loadEscritura();
+        else if (activityId === 'multimedia') loadMultimedia();
+        
+        // Quitar fade-out y aplicar fade-in
+        contentDiv.classList.remove('fade-out');
+        contentDiv.classList.add('fade-in');
+        setTimeout(() => contentDiv.classList.remove('fade-in'), 500);
+    }, 300);
+    
+    // Resaltar botón activo
+    document.querySelectorAll('.activity-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-activity') === activityId) {
+            btn.classList.add('active');
+        }
+    });
+}
+                </code></pre>
+            </div>
+            <div class="code-explanation">
+                <h3>🎯 ¿Cómo funciona?</h3>
+                <ul>
+                    <li><strong>data-activity:</strong> Atributo personalizado que identifica qué actividad cargar.</li>
+                    <li><strong>Efecto fade:</strong> Clases CSS que controlan la opacidad y transición.</li>
+                    <li><strong>setTimeout:</strong> Permite que la animación termine antes de cambiar el contenido.</li>
+                    <li><strong>Botón activo:</strong> Se resalta visualmente la actividad seleccionada.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN DE CÓDIGO: DRAG & DROP               -->
+    <!-- ============================================ -->
+    <section class="section code-section dark-bg">
+        <div class="container">
+            <h2 class="light-title">Actividad de Arrastrar y Soltar (Drag & Drop)</h2>
+            <p class="section-intro light">Implementación nativa de drag & drop para asociar 30 libros con sus respectivos autores.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-javascript">
+// Configuración del Drag & Drop
+function initDragEvents() {
+    const books = document.querySelectorAll('.drag-book-item');
+    const zones = document.querySelectorAll('.drop-author-zone');
+    
+    books.forEach(book => {
+        book.setAttribute('draggable', 'true');
+        book.addEventListener('dragstart', (e) => {
+            draggedBook = book;
+            book.classList.add('dragging');
+            e.dataTransfer.setData('text/plain', book.getAttribute('data-libro'));
+        });
+    });
+    
+    zones.forEach(zone => {
+        zone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            if (zone.getAttribute('data-matched') !== 'true') {
+                zone.classList.add('drag-over');
+            }
+        });
+        
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const libroNombre = draggedBook.getAttribute('data-libro');
+            const autorCorrecto = draggedBook.getAttribute('data-autor');
+            const autorZona = zone.getAttribute('data-autor');
+            
+            if (autorCorrecto === autorZona) {
+                // Emparejamiento correcto
+                zone.setAttribute('data-matched', 'true');
+                draggedBook.remove();
+                dragCompletados++;
+                actualizarProgresoDrag();
+                showToast("¡Correcto!");
+            } else {
+                showToast("Incorrecto, intenta de nuevo", true);
+            }
+        });
+    });
+}
+                </code></pre>
+            </div>
+            <div class="code-explanation light-explanation">
+                <h3>🖱️ Explicación del Drag & Drop:</h3>
+                <ul>
+                    <li><strong>dragstart:</strong> Se ejecuta al comenzar a arrastrar, guarda el libro seleccionado.</li>
+                    <li><strong>dragover:</strong> Necesario para permitir el "drop", previene el comportamiento por defecto.</li>
+                    <li><strong>drop:</strong> Verifica si el libro corresponde al autor y actualiza la interfaz.</li>
+                    <li><strong>data-matched:</strong> Evita que un autor reciba múltiples libros.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN DE CÓDIGO: EVALUACIÓN AUTOMÁTICA     -->
+    <!-- ============================================ -->
+    <section class="section code-section">
+        <div class="container">
+            <h2>Evaluación automática (Verdadero / Falso)</h2>
+            <p class="section-intro">Corrección automática de 30 preguntas con generación de porcentaje y retroalimentación.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-javascript">
+// Calcular evaluación
+function calificarEvaluacion() {
+    let aciertos = 0;
+    
+    for (let i = 0; i < evaluacionPreguntas.length; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+        const esCorrecto = (selected === 'true' && evaluacionPreguntas[i].esVerdadero) ||
+                           (selected === 'false' && !evaluacionPreguntas[i].esVerdadero);
+        if (esCorrecto) aciertos++;
+    }
+    
+    const porcentaje = Math.round((aciertos / evaluacionPreguntas.length) * 100);
+    let mensaje = "";
+    
+    if (porcentaje >= 80) mensaje = "¡Excelente! Dominas la literatura universal.";
+    else if (porcentaje >= 60) mensaje = "¡Muy bien! Tienes buen conocimiento.";
+    else mensaje = "Sigue practicando, revisa los conceptos.";
+    
+    mostrarResultados(aciertos, porcentaje, mensaje);
+}
+
+// Base de datos de preguntas
+const evaluacionPreguntas = [
+    { texto: "Don Quijote fue escrito por Cervantes.", esVerdadero: true },
+    { texto: "Cien años de soledad fue escrita por Isabel Allende.", esVerdadero: false },
+    // ... 30 preguntas en total
+];
+                </code></pre>
+            </div>
+            <div class="code-explanation">
+                <h3>📊 Explicación de la evaluación:</h3>
+                <ul>
+                    <li><strong>Base de datos local:</strong> Array de objetos con pregunta y respuesta correcta.</li>
+                    <li><strong>Recorrido dinámico:</strong> Itera sobre todas las preguntas para contar aciertos.</li>
+                    <li><strong>Retroalimentación:</strong> Mensaje personalizado según porcentaje obtenido.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN DE CÓDIGO: ESCRITURA CREATIVA        -->
+    <!-- ============================================ -->
+    <section class="section code-section dark-bg">
+        <div class="container">
+            <h2 class="light-title">Escritura creativa con palabras clave</h2>
+            <p class="section-intro light">Generador aleatorio de palabras y evaluación automática del poema.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-javascript">
+// Banco de palabras (60 palabras)
+const WORD_BANK = [
+    'amor', 'soledad', 'alegria', 'tristeza', 'sueño', 'nostalgia',
+    'mar', 'viento', 'fuego', 'tierra', 'cielo', 'luna',
+    'sombra', 'luz', 'espejo', 'camino', 'puerta', 'silencio',
+    // ... 60 palabras en total
+];
+
+// Generar palabras aleatorias
+function generateRandomKeywords(count = 4) {
+    const shuffled = [...WORD_BANK];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, count);
+}
+
+// Evaluar poema
+function evaluarPoema(poema, palabrasClave) {
+    let puntuacion = 0;
+    let palabrasUsadas = 0;
+    
+    palabrasClave.forEach(palabra => {
+        if (poema.toLowerCase().includes(palabra.toLowerCase())) {
+            palabrasUsadas++;
+        }
+    });
+    
+    puntuacion += palabrasUsadas; // 1 punto por cada palabra clave usada
+    
+    const lineas = poema.split('\n').filter(l => l.trim().length > 0).length;
+    if (lineas >= 3) puntuacion += 2; // +2 por buena estructura
+    
+    return { puntuacion, palabrasUsadas };
+}
+                </code></pre>
+            </div>
+            <div class="code-explanation light-explanation">
+                <h3>✍️ Explicación de la escritura creativa:</h3>
+                <ul>
+                    <li><strong>Banco de 60 palabras:</strong> Categorizadas en emociones, naturaleza, conceptos abstractos, etc.</li>
+                    <li><strong>Generación aleatoria:</strong> Selecciona 4 palabras diferentes cada vez.</li>
+                    <li><strong>Evaluación automática:</strong> Califica según uso de palabras, longitud y estructura.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN DE CÓDIGO: NUBES INFORMATIVAS        -->
+    <!-- ============================================ -->
+    <section class="section code-section">
+        <div class="container">
+            <h2>Nubes informativas interactivas</h2>
+            <p class="section-intro">Sistema de ventanas emergentes que muestran información detallada al hacer clic en los beneficios.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-javascript">
+// Sistema de nubes informativas
+function showCloud(benefitId) {
+    const content = beneficiosContent[benefitId];
+    if (content) {
+        cloudTitle.textContent = content.titulo;
+        cloudText.textContent = content.texto;
+        overlay.classList.add('show');
+        cloud.classList.add('show');
+    }
+}
+
+// Eventos de los beneficios
+document.querySelectorAll('.benefit-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const benefitId = item.getAttribute('data-benefit');
+        showCloud(benefitId);
+    });
+});
+
+// Cerrar con ESC o click fuera
+overlay.addEventListener('click', closeCloud);
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('show')) {
+        closeCloud();
+    }
+});
+                </code></pre>
+            </div>
+            <div class="code-explanation">
+                <h3>💡 Explicación de las nubes:</h3>
+                <ul>
+                    <li><strong>Overlay:</strong> Fondo semitransparente que enfoca la atención.</li>
+                    <li><strong>data-benefit:</strong> Identifica qué contenido mostrar.</li>
+                    <li><strong>Tecla ESC:</strong> Accesibilidad para cerrar la ventana.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN DE CÓDIGO: CSS - PALETA DE COLORES   -->
+    <!-- ============================================ -->
+    <section class="section code-section dark-bg">
+        <div class="container">
+            <h2 class="light-title">Paleta de colores y variables CSS</h2>
+            <p class="section-intro light">Sistema de diseño consistente usando variables CSS para mantener la coherencia visual.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-css">
+:root {
+    --azul-profundo: #1A3A6D;
+    --azul-medio: #3B82F6;
+    --verde-lima: #6EC04A;
+    --naranja-coral: #FF7F41;
+    --blanco-puro: #FFFFFF;
+    --gris-sombra: #D1D5DB;
+    --header-bg: #1f2a37;
+}
+
+/* Uso de las variables */
+.activity-btn {
+    background: linear-gradient(135deg, var(--azul-profundo), var(--azul-medio));
+    color: var(--blanco-puro);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--verde-lima), #4a9e2e);
+}
+
+.benefit-item:hover {
+    border-left: 4px solid var(--verde-lima);
+    background: rgba(110,192,74,0.05);
+}
+                </code></pre>
+            </div>
+            <div class="code-explanation light-explanation">
+                <h3>🎨 Explicación del sistema de colores:</h3>
+                <ul>
+                    <li><strong>Variables CSS:</strong> Centralizan los colores para fácil mantenimiento.</li>
+                    <li><strong>Degradados:</strong> Combinaciones de colores para efectos visuales atractivos.</li>
+                    <li><strong>Consistencia:</strong> Todos los componentes usan las mismas variables.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN DE TECNOLOGÍAS                       -->
+    <!-- ============================================ -->
+    <section class="section tech">
+        <div class="container">
+            <h2>Tecnologías utilizadas</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🌐</div>
+                    <h3>HTML5</h3>
+                    <p>Estructura semántica, formularios, drag & drop nativo, iframes para multimedia.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🎨</div>
+                    <h3>CSS3</h3>
+                    <p>Flexbox, Grid, variables CSS, animaciones keyframes, degradados, responsive design.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">⚙️</div>
+                    <h3>JavaScript (Vanilla)</h3>
+                    <p>DOM manipulation, eventos, drag & drop, lógica de evaluación, generación aleatoria, transiciones dinámicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>GLIFO</h3>
+                <p>Plataforma educativa digital para el fortalecimiento de la comprensión lectora.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <ul class="footer-links">
+                    <li><a href="glifoPRUEBAS.html">Inicio</a></li>
+                    <li><a href="ACTIVIDADESGLIFO.html">Actividades</a></li>
+                    <li><a href="Explicacion.html">Explicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📞 +57 3508420068</p>
+                <p>✉️ info@glifo.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GLIFO - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+</body>
+</html>
